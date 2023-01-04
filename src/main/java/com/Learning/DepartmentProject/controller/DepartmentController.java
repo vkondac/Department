@@ -12,30 +12,37 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @GetMapping("/departments")
-    public Iterable<Department> getAll(){
-        return departmentService.getAllDepartments();
+    public Iterable<Department> getAll() {
+        return departmentService.getSmallDepartments();
+    }
+
+    @GetMapping("/departments/seatNumber")
+    public Iterable<Department> getDepartmentBySeatNumber(@RequestParam(defaultValue = "300") Integer seatNumber) {
+        return departmentService.getDepartmentsBySeatNumber(seatNumber);
     }
 
     @GetMapping("/departments/{id}")
-    public Department findDepartmentById(@PathVariable("id") Long departmentId){
+    public Department findDepartmentById(@PathVariable("id") Long departmentId) {
         return departmentService.getDepartmentById(departmentId);
     }
+
     @GetMapping("/departments/name/{name}")
-    public Department getDepartmentByName(@PathVariable("name")String departmentName){
+    public Department getDepartmentByName(@PathVariable("name") String departmentName) {
         return departmentService.getDepartmentName(departmentName);
     }
 
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
 
     @DeleteMapping("/departments/{id}")
-    public void deleteDepartment(@PathVariable("id")Long departmentId){
+    public void deleteDepartment(@PathVariable("id") Long departmentId) {
         departmentService.deleteDepartmentById(departmentId);
     }
+
     @PutMapping("/departments/{id}")
-    public ResponseEntity<Department> updateDepartment(@PathVariable("id")Long departmentId, @RequestBody Department department){
+    public ResponseEntity<Department> updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department) {
         return departmentService.updateDepartment(departmentId, department);
     }
 

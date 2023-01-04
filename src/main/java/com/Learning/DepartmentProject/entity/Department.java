@@ -1,27 +1,30 @@
 package com.Learning.DepartmentProject.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentID;
+    @Column(nullable = false)
     private String departmentName;
+    @Column(nullable = false)
     private String departmentAddress;
+    @Column(nullable = false)
     private String departmentCode;
+    @Column(nullable = false)
+    private Integer seatNumber;
 
     public Department() {
     }
 
-    public Department(Long departmentID, String departmentName, String departmentAddress, String departmentCode) {
+    public Department(Long departmentID, String departmentName, String departmentAddress, String departmentCode, Integer seatNumber) {
         this.departmentID = departmentID;
         this.departmentName = departmentName;
         this.departmentAddress = departmentAddress;
         this.departmentCode = departmentCode;
+        this.seatNumber = seatNumber;
     }
 
     @Override
@@ -31,7 +34,16 @@ public class Department {
                 ", departmentName='" + departmentName + '\'' +
                 ", departmentAddress='" + departmentAddress + '\'' +
                 ", departmentCode='" + departmentCode + '\'' +
+                ", seatNumber=" + seatNumber +
                 '}';
+    }
+
+    public Integer getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(Integer seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     public String getDepartmentName() {

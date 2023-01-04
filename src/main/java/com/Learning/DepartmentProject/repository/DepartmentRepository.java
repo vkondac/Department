@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface DepartmentRepository extends JpaRepository<Department,Long> {
     public Department findByDepartmentName(String name);
+    public Iterable<Department> findBySeatNumber(Integer seatNumber);
 }
