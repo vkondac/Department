@@ -1,6 +1,7 @@
 package com.Learning.DepartmentProject.service;
 
 import com.Learning.DepartmentProject.entity.Department;
+import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
 import org.springframework.http.ResponseEntity;
 
 public interface DepartmentService {
@@ -8,7 +9,7 @@ public interface DepartmentService {
 
     public Iterable<Department> getAllDepartments();
 
-    public Department getDepartmentById(Long departmentId);
+    public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 

@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3307/departments-prod?useSSL=false
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: Andjele1!
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: 'true'

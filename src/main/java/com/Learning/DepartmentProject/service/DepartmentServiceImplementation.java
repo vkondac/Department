@@ -1,6 +1,7 @@
 package com.Learning.DepartmentProject.service;
 
 import com.Learning.DepartmentProject.entity.Department;
+import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
 import com.Learning.DepartmentProject.repository.DepartmentRepository;
 import com.Learning.DepartmentProject.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 @Service
@@ -24,8 +26,12 @@ public class DepartmentServiceImplementation implements DepartmentService {
         return departmentRepository.findAll();
     }
 
-    public Department getDepartmentById(Long departmentId) {
-        return departmentRepository.findById(departmentId).get();
+    public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        if(!department.isPresent()){
+            throw new DepartmentNotFoundException("Department not avaiable");
+        }
+        return department.get();
     }
 
     public void deleteDepartmentById(Long departmentId) {
@@ -45,7 +51,7 @@ public class DepartmentServiceImplementation implements DepartmentService {
     }
 
     public Department getDepartmentName(String departmentName) {
-        return departmentRepository.findByDepartmentName(departmentName);
+        return departmentRepository.findByDepartmentNameIgnoreCase(departmentName);
     }
 
     public Iterable<Department> getSmallDepartments() {

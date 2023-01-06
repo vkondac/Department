@@ -1,7 +1,9 @@
 package com.Learning.DepartmentProject.controller;
 
 import com.Learning.DepartmentProject.entity.Department;
+import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
 import com.Learning.DepartmentProject.service.DepartmentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +24,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department findDepartmentById(@PathVariable("id") Long departmentId) {
+    public Department findDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.getDepartmentById(departmentId);
     }
 
@@ -32,7 +34,7 @@ public class DepartmentController {
     }
 
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department) {
+    public Department saveDepartment(@Valid @RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
 
