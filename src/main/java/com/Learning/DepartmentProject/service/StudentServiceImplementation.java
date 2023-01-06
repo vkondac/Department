@@ -29,8 +29,14 @@ public class StudentServiceImplementation implements StudentService{
     }
 
     public Student assignDepartmentToStudent(Long studentId, Long departmentId){
-        Student student = studentRepository.findById(studentId).get();
-        Department department = departmentRepository.findById(departmentId).get();
+
+        Optional<Student> checkStudent = studentRepository.findById(studentId);
+        if(!checkStudent.isPresent()){ throw new ResourceNotFoundException("Student with id" + studentId + "not found");}
+        Student student = checkStudent.get();
+        Optional<Department> checkDepartment = departmentRepository.findById(departmentId);
+        if(!checkDepartment.isPresent()){ throw new ResourceNotFoundException("Department with id" + studentId + "not found");}
+        Department department = checkDepartment.get();
+
         student.setDepartment(department);
         return studentRepository.save(student);
     }
