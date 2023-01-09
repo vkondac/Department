@@ -2,7 +2,7 @@ package com.Learning.DepartmentProject.controller;
 
 import com.Learning.DepartmentProject.entity.Department;
 import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
-import com.Learning.DepartmentProject.service.DepartmentService;
+import com.Learning.DepartmentProject.service.department.DepartmentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

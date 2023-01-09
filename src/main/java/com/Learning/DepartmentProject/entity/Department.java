@@ -3,8 +3,12 @@ package com.Learning.DepartmentProject.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
+
 import java.util.Set;
 
 @Entity
@@ -27,6 +31,7 @@ public class Department {
     @Column(nullable = false)
     private Integer seatNumber;
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "department")
-    private Set<Student> students;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "department")
+    private Set<Course> courses;
+
 }

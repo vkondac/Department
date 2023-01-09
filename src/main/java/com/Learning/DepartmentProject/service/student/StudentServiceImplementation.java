@@ -1,18 +1,17 @@
-package com.Learning.DepartmentProject.service;
+package com.Learning.DepartmentProject.service.student;
 
-import com.Learning.DepartmentProject.entity.Department;
 import com.Learning.DepartmentProject.entity.Student;
 import com.Learning.DepartmentProject.repository.DepartmentRepository;
 import com.Learning.DepartmentProject.repository.StudentRepository;
+import com.Learning.DepartmentProject.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Set;
 
 @Service
-public class StudentServiceImplementation implements StudentService{
+public class StudentServiceImplementation implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
     @Autowired
@@ -28,17 +27,17 @@ public class StudentServiceImplementation implements StudentService{
         return studentRepository.save(student);
     }
 
-    public Student assignDepartmentToStudent(Long studentId, Long departmentId){
-
-        Optional<Student> checkStudent = studentRepository.findById(studentId);
-        if(!checkStudent.isPresent()){ throw new ResourceNotFoundException("Student with id" + studentId + "not found");}
-        Student student = checkStudent.get();
-        Optional<Department> checkDepartment = departmentRepository.findById(departmentId);
-        if(!checkDepartment.isPresent()){ throw new ResourceNotFoundException("Department with id" + studentId + "not found");}
-        Department department = checkDepartment.get();
-
-        student.setDepartment(department);
-        return studentRepository.save(student);
-    }
+//    public Student assignDepartmentToStudent(Long studentId, Long departmentId){
+//
+//        Optional<Student> checkStudent = studentRepository.findById(studentId);
+//        if(!checkStudent.isPresent()){ throw new ResourceNotFoundException("Student with id" + studentId + "not found");}
+//        Student student = checkStudent.get();
+//        Optional<Department> checkDepartment = departmentRepository.findById(departmentId);
+//        if(!checkDepartment.isPresent()){ throw new ResourceNotFoundException("Department with id" + studentId + "not found");}
+//        Department department = checkDepartment.get();
+//
+//        student.setDepartment(department);
+//        return studentRepository.save(student);
+//    }
 
 }

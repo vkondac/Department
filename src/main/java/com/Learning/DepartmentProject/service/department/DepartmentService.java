@@ -1,4 +1,4 @@
-package com.Learning.DepartmentProject.service;
+package com.Learning.DepartmentProject.service.department;
 
 import com.Learning.DepartmentProject.entity.Department;
 import com.Learning.DepartmentProject.error.DepartmentNotFoundException;

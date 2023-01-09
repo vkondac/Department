@@ -19,5 +19,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
 
     }
+    @ExceptionHandler(CourseNotFoundException.class)
+    public ResponseEntity<ErrorMessage> courseNotFoundException(CourseNotFoundException courseNotFoundException, WebRequest request){
+
+        ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND, courseNotFoundException.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+
+    }
 
 }
