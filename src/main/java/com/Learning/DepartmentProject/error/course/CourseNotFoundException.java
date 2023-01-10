@@ -1,4 +1,4 @@
-package com.Learning.DepartmentProject.error;
+package com.Learning.DepartmentProject.error.course;
 
 public class CourseNotFoundException extends Exception{
     public CourseNotFoundException() {

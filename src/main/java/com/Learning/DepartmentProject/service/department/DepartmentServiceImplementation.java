@@ -1,7 +1,7 @@
 package com.Learning.DepartmentProject.service.department;
 
 import com.Learning.DepartmentProject.entity.Department;
-import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
+import com.Learning.DepartmentProject.error.department.DepartmentNotFoundException;
 import com.Learning.DepartmentProject.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

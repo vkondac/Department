@@ -1,4 +1,4 @@
-package com.Learning.DepartmentProject.error;
+package com.Learning.DepartmentProject.error.department;
 
 public class DepartmentNotFoundException extends Exception{
     public DepartmentNotFoundException() {

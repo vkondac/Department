@@ -1,6 +1,8 @@
 package com.Learning.DepartmentProject.error;
 
 import com.Learning.DepartmentProject.entity.ErrorMessage;
+import com.Learning.DepartmentProject.error.course.CourseNotFoundException;
+import com.Learning.DepartmentProject.error.department.DepartmentNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Set;
@@ -27,6 +28,7 @@ public class Professor {
     private String emailAddress;
     @Column(name = "phone_number")
     private Integer phoneNumber;
+    @JsonIgnore
     @ManyToMany(mappedBy = "professors")
     private Set<Subject> subjects;
 }

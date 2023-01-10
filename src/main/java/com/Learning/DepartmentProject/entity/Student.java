@@ -7,8 +7,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -36,8 +39,9 @@ public class Student {
     @NotNull
     private Boolean isEnrolled;
     @Column(name = "enrolled_date")
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate enrolledDate;
+    @Temporal(TemporalType.DATE)
+    private Date enrolledDate;
+    @JsonIgnore
     @ManyToMany(mappedBy = "students")
     private Set<Subject> subjects;
 }

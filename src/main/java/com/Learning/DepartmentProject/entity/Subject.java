@@ -21,14 +21,17 @@ public class Subject {
     private String subject;
     @Column(name = "subject_year")
     private Integer subjectYear;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Course course;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(name = "subject_professor",
             joinColumns = @JoinColumn(name = "subject_id"),
             inverseJoinColumns = @JoinColumn(name = "professor_id")
     )
     private Set<Professor> professors;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(name = "subject_student",
             joinColumns = @JoinColumn(name = "subject_id"),

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 public class SubjectServiceImplementation implements SubjectService {
     @Autowired
     private SubjectRepository subjectRepository;
-
     public Subject saveSubject(Subject subject){
        return subjectRepository.save(subject);
     }

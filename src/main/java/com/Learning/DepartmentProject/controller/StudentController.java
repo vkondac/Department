@@ -18,8 +18,8 @@ public class StudentController {
     public Student saveStudent(@Valid @RequestBody Student student){
         return studentService.saveStudent(student);
     }
-//    @PutMapping("/students/{studentId}/department/{departmendId}")
-//    public Student assignDepartmentToStudent(@PathVariable Long studentId, @PathVariable Long departmendId){
-//        return studentService.assignDepartmentToStudent(studentId, departmendId);
-//    }
+    @PutMapping("/students/{studentId}/subjects/{subjectId}")
+    public Student assignSubjectsToStudent(@PathVariable(name = "subjectId") Long subjectId, @PathVariable(name = "studentId") Long studentId){
+        return studentService.assignSubjectsToStudent(subjectId,studentId);
+    }
 }

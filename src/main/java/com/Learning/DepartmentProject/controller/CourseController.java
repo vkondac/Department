@@ -1,10 +1,9 @@
 package com.Learning.DepartmentProject.controller;
 
 import com.Learning.DepartmentProject.entity.Course;
-import com.Learning.DepartmentProject.error.CourseNotFoundException;
-import com.Learning.DepartmentProject.error.DepartmentNotFoundException;
+import com.Learning.DepartmentProject.error.course.CourseNotFoundException;
+import com.Learning.DepartmentProject.error.department.DepartmentNotFoundException;
 import com.Learning.DepartmentProject.service.course.CourseService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
